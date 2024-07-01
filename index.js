@@ -1,19 +1,18 @@
-// Import necessary modules
 const express = require('express');
 const bodyParser = require('body-parser');
 
-// Initialize Express app
 const app = express();
 
-// Body parser middleware to parse incoming request bodies
+// Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// POST endpoint to handle form submissions
-app.post('/submitForm', (req, res) => {
+// Example POST endpoint
+app.post('/api/submitForm', (req, res) => {
     const formData = req.body;
-    // Process formData (e.g., save to database, send emails, etc.)
     console.log('Form data received:', formData);
-    res.status(200).json({ message: 'Form submission successful!' , formData});
+    res.status(200).json({ message: 'Form submission successful!' });
 });
 
+// Export the Express app
+module.exports = app;
